@@ -19,6 +19,18 @@ describe("Testing of EA App", () => {
             expect(linkText).is.eql('Login');
         }).click();
 
+        //Using alias to access a value outside a function
+        cy.get("#loginLink").then(($link) => {
+            return $link.text();
+        }).as("linkText");
+
+        cy.contains("Login").click();
+
+        cy.get("@linkText").then(($x) => {
+            expect($x).is.eql('Login');
+        })
+
+
         cy.url().should("include", "/Account/Login");
         cy.get('#UserName').type("admin");
         cy.get('#Password').type("password");
