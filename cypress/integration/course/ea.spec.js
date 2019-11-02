@@ -13,11 +13,11 @@ describe("Testing of EA App", () => {
         //     expect(linkText).is.eql('Login');
         // }).click();
 
-        //Checking the login button text (Getting Id to make sure is the correct element) and click on it
-        cy.get("#loginLink").then(($link) => {
-            const linkText = $link.text();
-            expect(linkText).is.eql('Login');
-        }).click();
+        // //Checking the login button text (Getting Id to make sure is the correct element) and click on it
+        // cy.get("#loginLink").then(($link) => {
+        //     const linkText = $link.text();
+        //     expect(linkText).is.eql('Login');
+        // }).click();
 
         //Using alias to access a value outside a function
         cy.get("#loginLink").then(($link) => {
@@ -29,8 +29,8 @@ describe("Testing of EA App", () => {
         cy.get("@linkText").then(($x) => {
             expect($x).is.eql('Login');
         })
-
-
+ 
+         
         cy.url().should("include", "/Account/Login");
         cy.get('#UserName').type("admin");
         cy.get('#Password').type("password");
