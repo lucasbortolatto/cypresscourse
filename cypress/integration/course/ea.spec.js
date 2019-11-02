@@ -7,8 +7,14 @@ describe("Testing of EA App", () => {
         //Clicking the login button
         //cy.contains("Login").click();
 
-        //Checking the login button text and click on it
-        cy.contains("Login").then(($link) => {
+        // //Checking the login button text and click on it
+        // cy.contains("Login").then(($link) => {
+        //     const linkText = $link.text();
+        //     expect(linkText).is.eql('Login');
+        // }).click();
+
+        //Checking the login button text (Getting Id to make sure is the correct element) and click on it
+        cy.get("#loginLink").then(($link) => {
             const linkText = $link.text();
             expect(linkText).is.eql('Login');
         }).click();
