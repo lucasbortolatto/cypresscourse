@@ -10,5 +10,11 @@ describe("Testing of EA App", () => {
 
         cy.get(".btn").click();
 
+        //Click Empoyee List
+        cy.contains("Employee List").click();
+
+        //Table
+        cy.get('.table').find('tr').contains('Prashant').parent().contains('Benefits').click();
+
     })
 })
